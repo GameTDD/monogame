@@ -1,5 +1,6 @@
 language: csharp
-sudo: false
+sudo: true
+solution: monogame.sln
 
 dotnet: 2.1.4 # SDK version; includes runtime version 2.0.5. Need 2.0+ for netcoreapp2.0 tests.
 
@@ -8,13 +9,30 @@ mono: 5.10.0 # Need 5.2+ for the included MSBuild.
 matrix:
   include:
     - os: osx
+      compiler:
+        - clang
+        - gcc
       install:
         - curl https://download.microsoft.com/download/A/7/E/A7EF2AFF-F77B-4F77-A21B-0F7BD09A4065/dotnet-osx-x64.1.1.6.pkg -O
         - sudo installer -pkg dotnet-osx-x64.1.1.6.pkg -target /
+        - sudo apt-get install gtk-sharp3
+        - wget http://www.monogame.net/releases/v3.6/monogame-sdk.run
+        # Extract contents and overwrite postinstall.sh to not prompt for input
+        # See: https://github.com/MonoGame/MonoGame/issues/5879
+        - chmod +x monogame-sdk.run
+        - sudo ./monogame-sdk.run --noexec --keep --target ./monogame
+        - sudo chmod 777 ./monogame/postinstall.sh
+        - cp Build/postinstall.sh ./monogame
+        - cd monogame
+        - sudo chmod +x postinstall.sh
+        - sudo ./postinstall.sh
+        - cd ..
 
+        - nuget restore
+        # NUnit
+        - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
       osx_image: xcode9.1
 
 script:
-  - ls -la
-  - msbuild
-  - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe monogame.Testes/bin/Debug/monogame.Testes.dll
+  - msbuild monogame.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit3-console.exe ./monogame.Testes/bin/Debug/monogame.Testes.dll
