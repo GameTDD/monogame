@@ -14,10 +14,7 @@ matrix:
 
       osx_image: xcode9.1
 
-before-script:
-  - ls -la
-  - dotnet --help
-
 script:
-  - msbuild monogame.sln
+  - ls -la
+  - msbuild
   - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe monogame.Testes/bin/Debug/monogame.Testes.dll
