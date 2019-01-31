@@ -6,7 +6,7 @@ namespace monogame
 
     public class GeneralAttributes
     {
-        public static Color BackgroungColor()
+        public static Color BackgroundColor()
         {
             return Color.White;
         }

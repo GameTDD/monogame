@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monogame.MacOS", "monogame\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monogame.Testes", "monogame.Testes\monogame.Testes.csproj", "{D24FB23E-0DE9-4C3E-84D1-58B79FA43414}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handlers", "Handlers\Handlers.csproj", "{2514975D-0EB7-42AB-A37A-4D99E3A3FA77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{D24FB23E-0DE9-4C3E-84D1-58B79FA43414}.Debug|x86.Build.0 = Debug|Any CPU
 		{D24FB23E-0DE9-4C3E-84D1-58B79FA43414}.Release|x86.ActiveCfg = Release|Any CPU
 		{D24FB23E-0DE9-4C3E-84D1-58B79FA43414}.Release|x86.Build.0 = Release|Any CPU
+		{2514975D-0EB7-42AB-A37A-4D99E3A3FA77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2514975D-0EB7-42AB-A37A-4D99E3A3FA77}.Debug|x86.Build.0 = Debug|Any CPU
+		{2514975D-0EB7-42AB-A37A-4D99E3A3FA77}.Release|x86.ActiveCfg = Release|Any CPU
+		{2514975D-0EB7-42AB-A37A-4D99E3A3FA77}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -68,7 +68,7 @@ namespace monogame.MacOS
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            graphics.GraphicsDevice.Clear(GeneralAttributes.BackgroungColor());
+            graphics.GraphicsDevice.Clear(GeneralAttributes.BackgroundColor());
 
             //TODO: Add your drawing code here
 
