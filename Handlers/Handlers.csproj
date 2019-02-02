@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Input.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

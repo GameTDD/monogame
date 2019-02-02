@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="GameScene\GameConfig.cs" />
     <Compile Include="Handlers\InputUtils.cs" />
+    <Compile Include="Handlers\GeometryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
