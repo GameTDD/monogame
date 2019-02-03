@@ -37,6 +37,7 @@
     <Compile Include="GameScene\GameConfig.cs" />
     <Compile Include="Handlers\InputUtils.cs" />
     <Compile Include="Handlers\GeometryTest.cs" />
+    <Compile Include="Objects\RegionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -54,6 +55,7 @@
   <ItemGroup>
     <Folder Include="GameScene\" />
     <Folder Include="Handlers\" />
+    <Folder Include="Objects\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
