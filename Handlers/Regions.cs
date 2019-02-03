@@ -12,6 +12,13 @@ namespace Handlers
             }
             return false;
         }
+
+        public static bool HasMouseClickedRegion(MouseState currentState, 
+                                                 MouseState prevState, Rectangle rect)
+        {
+            return Input.IsMouseClicked(currentState, prevState) 
+                        && IsInReagion(currentState, rect);
+        }
             
     }
 }
