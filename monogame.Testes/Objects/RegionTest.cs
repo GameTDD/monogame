@@ -50,5 +50,13 @@ namespace monogame.Testes.Objects
             region.InteractWithRegionState(currentState, previousState);
             Assert.That(region.State, Is.EqualTo(1));
         }
+
+        [Test()]
+        public void StateDoesNotCHangeWhenAlreadyClicked()
+        {
+            region.State = -1;
+            region.InteractWithRegionState(currentState, previousState);
+            Assert.That(region.State, Is.EqualTo(-1));
+        }
     }
 }

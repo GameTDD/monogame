@@ -19,6 +19,5 @@ namespace Handlers
             return Input.IsMouseClicked(currentState, prevState) 
                         && IsInReagion(currentState, rect);
         }
-            
     }
 }

@@ -18,10 +18,19 @@ namespace monogame.Objects
 
         public void InteractWithRegionState(MouseState current, MouseState previous)
         {
-            if (Regions.HasMouseClickedRegion(current, previous, Area))
+            if (Regions.HasMouseClickedRegion(current, previous, Area) && !IsActive())
             {
                 State = 1;
             }
+        }
+
+        public bool IsActive()
+        {
+            if (State == 1 || State == -1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
