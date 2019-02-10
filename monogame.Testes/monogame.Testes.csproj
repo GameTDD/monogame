@@ -38,6 +38,7 @@
     <Compile Include="Handlers\InputUtils.cs" />
     <Compile Include="Handlers\GeometryTest.cs" />
     <Compile Include="Objects\RegionTest.cs" />
+    <Compile Include="Objects\BoardConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
