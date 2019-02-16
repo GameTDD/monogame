@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using monogame.Objects;
 
 namespace monogame.MacOS
 {
@@ -13,6 +14,8 @@ namespace monogame.MacOS
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Board board;
+        GeneralAttributes generalAttributes;
 
         public Game1()
         {
@@ -28,8 +31,8 @@ namespace monogame.MacOS
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            generalAttributes = new GeneralAttributes();
+            generalAttributes.GenerateTextures(graphics.GraphicsDevice);            
             base.Initialize();
         }
 
@@ -41,6 +44,7 @@ namespace monogame.MacOS
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            board = new Board();
 
             //TODO: use this.Content to load your game content here 
         }
@@ -70,7 +74,9 @@ namespace monogame.MacOS
         {
             graphics.GraphicsDevice.Clear(GeneralAttributes.BackgroundColor());
 
-            //TODO: Add your drawing code here
+            spriteBatch.Begin(SpriteSortMode.Deferred);
+            board.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
