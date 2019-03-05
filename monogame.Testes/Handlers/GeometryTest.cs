@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
-
+using Handlers;
 
 namespace monogame.Testes
 {
@@ -32,38 +32,38 @@ namespace monogame.Testes
         [Test()]
         public void MouseStatePositionIsInRegion()
         {
-            Assert.That(Handlers.Regions.IsInReagion(correctMouseState, rect), Is.True);
+            Assert.That(Regions.IsInReagion(correctMouseState, rect), Is.True);
         }
 
         [Test()]
         public void MouseStatePositionSmallerThanRegion()
         {
-            Assert.That(Handlers.Regions.IsInReagion(smallerThanRegionState, rect), Is.False);
+            Assert.That(Regions.IsInReagion(smallerThanRegionState, rect), Is.False);
         }
 
         [Test()]
         public void MouseStatePositionGreaterThanRegion()
         {
-            Assert.That(Handlers.Regions.IsInReagion(greaterThanRegionState, rect), Is.False);
+            Assert.That(Regions.IsInReagion(greaterThanRegionState, rect), Is.False);
         }
     
 
         [Test()]
         public void MouseHasClickedRegion()
         {
-            Assert.That(Handlers.Regions.HasMouseClickedRegion(correctMouseState, smallerThanRegionState, rect), Is.True);
+            Assert.That(Regions.HasMouseClickedRegion(correctMouseState, smallerThanRegionState, rect), Is.True);
         }
 
         [Test()]
         public void MouseInRegionNotClicked()
         {
-            Assert.That(Handlers.Regions.HasMouseClickedRegion(unclickedMouseState, smallerThanRegionState, rect), Is.False);
+            Assert.That(Regions.HasMouseClickedRegion(unclickedMouseState, smallerThanRegionState, rect), Is.False);
         }
 
         [Test()]
         public void MouseClickedNotInRegion()
         {
-            Assert.That(Handlers.Regions.HasMouseClickedRegion(greaterThanRegionState, unclickedMouseState, rect), Is.False);
+            Assert.That(Regions.HasMouseClickedRegion(greaterThanRegionState, unclickedMouseState, rect), Is.False);
         }
     
     }

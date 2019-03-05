@@ -50,6 +50,7 @@
     <Compile Include="Handlers\GeometryTest.cs" />
     <Compile Include="Objects\RegionTest.cs" />
     <Compile Include="Objects\BoardConfig.cs" />
+    <Compile Include="Handlers\StateManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

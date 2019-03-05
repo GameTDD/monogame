@@ -69,6 +69,7 @@
     <Compile Include="GeneralAttributes.cs" />
     <Compile Include="Objects\Region.cs" />
     <Compile Include="Objects\Board.cs" />
+    <Compile Include="Objects\BoardStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

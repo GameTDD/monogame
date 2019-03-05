@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Microsoft.Xna.Framework.Input;
+using Handlers;
 
 namespace monogame.Testes
 {
@@ -19,25 +20,25 @@ namespace monogame.Testes
         [Test()]
         public void IsClickedShouldReturnTrueForClickedState()
         {
-            Assert.That(Handlers.Input.IsMouseClicked(buttonPressedState, buttonReleasedState), Is.True);
+            Assert.That(Input.IsMouseClicked(buttonPressedState, buttonReleasedState), Is.True);
         }
 
         [Test()]
         public void IsClickedShouldReturnFalseForPressedState()
         {
-            Assert.That(Handlers.Input.IsMouseClicked(buttonPressedState, buttonPressedState), Is.False);
+            Assert.That(Input.IsMouseClicked(buttonPressedState, buttonPressedState), Is.False);
         }  
 
         [Test()]
         public void IsClickedShouldReturnFalseForReleasedState()
         {
-            Assert.That(Handlers.Input.IsMouseClicked(buttonReleasedState, buttonReleasedState), Is.False);
+            Assert.That(Input.IsMouseClicked(buttonReleasedState, buttonReleasedState), Is.False);
         }  
 
         [Test()]
         public void IsClickedShouldReturnFalseForUnclickedState()
         {
-            Assert.That(Handlers.Input.IsMouseClicked(buttonReleasedState, buttonPressedState), Is.False);
+            Assert.That(Input.IsMouseClicked(buttonReleasedState, buttonPressedState), Is.False);
         }  
     }
 }
