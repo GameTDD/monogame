@@ -57,5 +57,15 @@ namespace monogame.Testes.Handlers
             Assert.That(stateManager.ClickedRegion(gameBoard.regions, currentState,
                                         previousState), Is.EqualTo(-1));
         }
+
+        [Test()]
+        public void ClickedRegionHasChangedState()
+        {
+            currentState = new MouseState(250, 250, 0, ButtonState.Pressed, ButtonState.Released,
+                    ButtonState.Released, ButtonState.Released, ButtonState.Released);
+            var idx = stateManager.ClickedRegion(gameBoard.regions, currentState, previousState);
+            stateManager.UpdateClickedRegionState(gameBoard.regions, idx);
+            Assert.That(gameBoard.regions[4].State, Is.EqualTo(1));
+        }
     }
 }

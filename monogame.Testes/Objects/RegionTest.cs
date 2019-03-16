@@ -35,19 +35,9 @@ namespace monogame.Testes.Objects
         }
 
         [Test()]
-        public void StateDoesNotChangeAfterClick()
-        {
-            region.State = 0;
-            MouseState currentStateAux = new MouseState(1000, 400, 0, ButtonState.Pressed, ButtonState.Released,
-                     ButtonState.Released, ButtonState.Released, ButtonState.Released);
-            region.InteractWithRegionState(currentStateAux, previousState);
-            Assert.That(region.State, Is.EqualTo(0));
-        }
-
-        [Test()]
         public void StateChangesTo1AfterClick()
         {
-            region.InteractWithRegionState(currentState, previousState);
+            region.InteractWithRegionState();
             Assert.That(region.State, Is.EqualTo(1));
         }
 
@@ -55,7 +45,7 @@ namespace monogame.Testes.Objects
         public void StateDoesNotCHangeWhenAlreadyClicked()
         {
             region.State = -1;
-            region.InteractWithRegionState(currentState, previousState);
+            region.InteractWithRegionState();
             Assert.That(region.State, Is.EqualTo(-1));
         }
     }

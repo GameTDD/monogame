@@ -10,7 +10,8 @@ namespace monogame.Objects
         {
         }
 
-        public int ClickedRegion(Region[] regions, MouseState current, MouseState prev) {
+        public int ClickedRegion(Region[] regions, MouseState current, MouseState prev) 
+        {
             for (int i = 0; i < regions.Length; i++)
             {
                 if (Regions.HasMouseClickedRegion(current, prev, regions[i].Area))
@@ -19,6 +20,15 @@ namespace monogame.Objects
                 }
             }
             return -1;
+        }
+
+        public void UpdateClickedRegionState(Region[] regions, 
+                                             int clickedRegion)
+        {
+            if (clickedRegion != -1)
+            {
+                regions[clickedRegion].InteractWithRegionState();
+            }
         }
     }
 }

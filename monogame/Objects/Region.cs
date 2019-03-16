@@ -16,9 +16,9 @@ namespace monogame.Objects
             Area = new Rectangle(x, y, width, height);
         }
 
-        public void InteractWithRegionState(MouseState current, MouseState previous)
+        public void InteractWithRegionState()
         {
-            if (Regions.HasMouseClickedRegion(current, previous, Area) && !IsActive())
+            if (!IsActive())
             {
                 State = 1;
             }
