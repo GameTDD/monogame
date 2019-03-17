@@ -67,5 +67,24 @@ namespace monogame.Testes.Handlers
             stateManager.UpdateClickedRegionState(gameBoard.regions, idx);
             Assert.That(gameBoard.regions[4].State, Is.EqualTo(1));
         }
+
+        [Test()]
+        public void PlayerStateHasUpdated()
+        {
+            BoardStateManager.currentPlayer = 1;
+            BoardStateManager.UpdatePlayerState();
+            Assert.That(BoardStateManager.currentPlayer, Is.EqualTo(-1));
+            BoardStateManager.UpdatePlayerState();
+            Assert.That(BoardStateManager.currentPlayer, Is.EqualTo(1));
+        }
+
+        [Test()]
+        public void DifferentClickedRegionsHaveDiffStates()
+        {
+            gameBoard.regions[3].InteractWithRegionState();
+            Assert.That(gameBoard.regions[3].State, Is.EqualTo(-1));
+            gameBoard.regions[4].InteractWithRegionState();
+            Assert.That(gameBoard.regions[4].State, Is.EqualTo(1));
+        }
     }
 }

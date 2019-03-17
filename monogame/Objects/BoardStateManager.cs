@@ -6,8 +6,15 @@ namespace monogame.Objects
 {
     public class BoardStateManager
     {
+        public static int currentPlayer { get; set; }
+
         public BoardStateManager()
         {
+            currentPlayer = 1;
+        }
+
+        public static void UpdatePlayerState() {
+            currentPlayer = -currentPlayer;
         }
 
         public int ClickedRegion(Region[] regions, MouseState current, MouseState prev) 

@@ -20,7 +20,8 @@ namespace monogame.Objects
         {
             if (!IsActive())
             {
-                State = 1;
+                State = BoardStateManager.currentPlayer;
+                BoardStateManager.UpdatePlayerState();
             }
         }
 
