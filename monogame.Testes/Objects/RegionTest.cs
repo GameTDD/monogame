@@ -48,5 +48,25 @@ namespace monogame.Testes.Objects
             region.InteractWithRegionState();
             Assert.That(region.State, Is.EqualTo(-1));
         }
+
+        [Test()]
+        public void XIsReturnedFor1()
+        {
+            region.State = 1;
+            Assert.That(region.GetSymbol(), Is.EqualTo("X"));
+        }
+
+        public void OIsReturnedForMinus1()
+        {
+            region.State = -1;
+            Assert.That(region.GetSymbol(), Is.EqualTo("O"));
+        }
+
+        [Test()]
+        public void EmptyStringFor0()
+        {
+            region.State = 0;
+            Assert.That(region.GetSymbol(), Is.EqualTo(""));
+        }
     }
 }

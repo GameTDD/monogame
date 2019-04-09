@@ -16,6 +16,7 @@ namespace monogame.MacOS
         SpriteBatch spriteBatch;
         Board board;
         GeneralAttributes generalAttributes;
+        SpriteFont font;
 
         public Game1()
         {
@@ -43,11 +44,9 @@ namespace monogame.MacOS
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("font");
             board = new Board();
-
-            //TODO: use this.Content to load your game content here 
         }
 
         /// <summary>

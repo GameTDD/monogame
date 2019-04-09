@@ -33,5 +33,14 @@ namespace monogame.Objects
             }
             return false;
         }
+
+        public string GetSymbol()
+        {
+            if (State == 1)
+            { return "X"; }
+            else if (State == -1) 
+            { return "O"; }
+            return "";
+        }
     }
 }
