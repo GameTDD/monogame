@@ -74,7 +74,7 @@ namespace monogame.Testes.Objects
         [Test()]
         public void IsStringPositionVectorCentered()
         {
-            Assert.That(region.StringPosition, Is.EqualTo(new Vector2(20, 32)));
+            Assert.That(region.StringPosition, Is.EqualTo(new Vector2(16, 26)));
         }
     }
 }

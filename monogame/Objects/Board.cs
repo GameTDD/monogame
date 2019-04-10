@@ -42,6 +42,15 @@ namespace monogame.Objects
             foreach (Rectangle line in lines) {
                 sb.Draw(GeneralAttributes.LineTexture, line, Color.White);
             }
+            DrawRegions(sb);
+        }
+
+        public void DrawRegions(SpriteBatch sb) 
+        {
+            foreach (Region region in regions)
+            {
+                region.Draw(sb);
+            }
         }
     }
 }

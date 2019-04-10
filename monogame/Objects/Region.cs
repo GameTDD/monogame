@@ -17,7 +17,12 @@ namespace monogame.Objects
             State = 0;
             Area = new Rectangle(x, y, width, height);
             this.font = font;
-            StringPosition = new Vector2(Area.X + Area.Width/2, Area.Y + Area.Height / 2);
+            StringPosition = new Vector2(Area.X + Area.Width / 3, Area.Y + Area.Height / 3);
+        }
+
+        public void Draw(SpriteBatch sb)
+        {
+            sb.DrawString(font, GetSymbol(), StringPosition, Color.Black);
         }
 
         public void InteractWithRegionState()
