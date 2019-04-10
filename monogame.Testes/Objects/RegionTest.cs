@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 using monogame.Objects;
 
 namespace monogame.Testes.Objects
@@ -15,7 +16,8 @@ namespace monogame.Testes.Objects
         [TestFixtureSetUp()]
         public void SetUpRegion()
         {
-            region = new Region(10, 15, 20, 35);
+            SpriteFont font = null;
+            region = new Region(10, 15, 20, 35, font);
             currentState = new MouseState(20, 40, 0, ButtonState.Pressed, ButtonState.Released,
                      ButtonState.Released, ButtonState.Released, ButtonState.Released);
             previousState = new MouseState(25, 45, 0, ButtonState.Released, ButtonState.Released,
@@ -67,6 +69,12 @@ namespace monogame.Testes.Objects
         {
             region.State = 0;
             Assert.That(region.GetSymbol(), Is.EqualTo(""));
+        }
+
+        [Test()]
+        public void IsStringPositionVectorCentered()
+        {
+            Assert.That(region.StringPosition, Is.EqualTo(new Vector2(20, 32)));
         }
     }
 }

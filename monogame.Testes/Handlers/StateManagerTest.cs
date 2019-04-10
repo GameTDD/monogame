@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 using monogame.Objects;
 
 namespace monogame.Testes.Handlers
@@ -15,7 +16,8 @@ namespace monogame.Testes.Handlers
         [TestFixtureSetUp()]
         public void StateManagerSetUp()
         {
-            gameBoard = new Board();
+            SpriteFont font = null;
+            gameBoard = new Board(font);
             stateManager = new BoardStateManager();
             previousState = new MouseState(250, 250, 0, ButtonState.Released, ButtonState.Released,
                       ButtonState.Released, ButtonState.Released, ButtonState.Released);

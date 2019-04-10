@@ -15,7 +15,8 @@ namespace monogame.Testes.Objects
         [TestFixtureSetUp()]
         public void BoardTestSetUp()
         {
-            gameBoard = new Board();
+            SpriteFont font = null;
+            gameBoard = new Board(font);
         }
 
         [Test()]

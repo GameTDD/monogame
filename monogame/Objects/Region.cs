@@ -1,7 +1,7 @@
 ﻿using System;
 using Handlers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace monogame.Objects
 {
@@ -9,11 +9,15 @@ namespace monogame.Objects
     {
         public int State { get; set; } 
         public Rectangle Area { get; set; }
+        public Vector2 StringPosition { get; set; }
+        SpriteFont font;
 
-        public Region(int x, int y, int width, int height)
+        public Region(int x, int y, int width, int height, SpriteFont font)
         {
             State = 0;
             Area = new Rectangle(x, y, width, height);
+            this.font = font;
+            StringPosition = new Vector2(Area.X + Area.Width/2, Area.Y + Area.Height / 2);
         }
 
         public void InteractWithRegionState()

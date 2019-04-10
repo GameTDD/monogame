@@ -46,7 +46,7 @@ namespace monogame.MacOS
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("font");
-            board = new Board();
+            board = new Board(font);
         }
 
         /// <summary>
