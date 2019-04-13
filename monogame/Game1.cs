@@ -15,6 +15,7 @@ namespace monogame.MacOS
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Board board;
+        BoardStateManager stateManager;
         GeneralAttributes generalAttributes;
         SpriteFont font;
 
@@ -45,6 +46,7 @@ namespace monogame.MacOS
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            stateManager = new BoardStateManager();
             font = Content.Load<SpriteFont>("font");
             board = new Board(font);
         }
@@ -62,7 +64,7 @@ namespace monogame.MacOS
                 Exit();
 
             // TODO: Add your update logic here
-
+            board.Update(gameTime);
             base.Update(gameTime);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace monogame.Objects
 {
@@ -11,6 +12,8 @@ namespace monogame.Objects
 
         public Rectangle[] lines { get; set; }
         public Region[] regions { get; set; }
+        public MouseState Current { get; set; }
+        public MouseState Previous { get; set; }
         public int Thickness { get; set; }
         public int Length { get; set; }
 
@@ -37,12 +40,30 @@ namespace monogame.Objects
             };
         }
 
+        public void Update(GameTime gameTime)
+        {
+            UpdateMouse(Mouse.GetState());
+            UpdateCLicks(BoardStateManager.ClickedRegion(regions, Current, Previous));
+        }
+
         public void Draw(SpriteBatch sb)
         {
-            foreach (Rectangle line in lines) {
+            foreach (Rectangle line in lines)
+            {
                 sb.Draw(GeneralAttributes.LineTexture, line, Color.White);
             }
             DrawRegions(sb);
+        }
+
+        public void UpdateMouse(MouseState newState) 
+        {
+            Previous = Current;
+            Current = newState;
+        }
+
+        public void UpdateCLicks(int idx)
+        {
+            BoardStateManager.UpdateClickedRegionState(regions, idx);
         }
 
         public void DrawRegions(SpriteBatch sb) 

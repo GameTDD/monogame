@@ -17,7 +17,7 @@ namespace monogame.Objects
             currentPlayer = -currentPlayer;
         }
 
-        public int ClickedRegion(Region[] regions, MouseState current, MouseState prev) 
+        public static int ClickedRegion(Region[] regions, MouseState current, MouseState prev) 
         {
             for (int i = 0; i < regions.Length; i++)
             {
@@ -29,7 +29,7 @@ namespace monogame.Objects
             return -1;
         }
 
-        public void UpdateClickedRegionState(Region[] regions, 
+        public static void UpdateClickedRegionState(Region[] regions, 
                                              int clickedRegion)
         {
             if (clickedRegion != -1)
