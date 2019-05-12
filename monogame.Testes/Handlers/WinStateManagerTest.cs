@@ -69,5 +69,25 @@ namespace monogame.Testes.Handlers
             regions[7].State = -1;
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(-1));
         }
+
+        [Test()]
+        public void Diag1HasWonP1()
+        {
+            TestSetup();
+            regions[0].State = 1;
+            regions[4].State = 1;
+            regions[8].State = 1;
+            Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(1));
+        }
+
+        [Test()]
+        public void Diag2HasWonP2()
+        {
+            TestSetup();
+            regions[2].State = -1;
+            regions[4].State = -1;
+            regions[6].State = -1;
+            Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(-1));
+        }
     }
 }
