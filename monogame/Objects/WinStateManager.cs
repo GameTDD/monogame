@@ -7,11 +7,19 @@ namespace monogame.Objects
     {
         public static int WhichPlayerWon(Region[] regions)
         {
-            int row1 = HasWon( new Region[] { regions[0], regions[1], regions[2] });
-            int row2 = HasWon( new Region[] { regions[3], regions[4], regions[5] });
-            int row3 = HasWon( new Region[] { regions[6], regions[7], regions[8] });
-            int col1 = HasWon(new Region[] { regions[0], regions[3], regions[6] });
-            return DetermineWinner(row1, row2, row3, col1);
+            int[] axis = new int[] {
+                HasWon( new Region[] { regions[0], regions[1], regions[2] }),
+                HasWon(new Region[] { regions[3], regions[4], regions[5] }),
+                HasWon(new Region[] { regions[6], regions[7], regions[8] }),
+                HasWon(new Region[] { regions[0], regions[3], regions[6] }),
+                HasWon(new Region[] { regions[1], regions[4], regions[7] }),
+                HasWon(new Region[] { regions[2], regions[5], regions[8] })
+
+            };
+            foreach(int value in axis) { 
+                if (value == 1 || value == -1) { return value;  }
+            }
+            return 0;
         }
 
         public static int HasWon(Region[] regions) {
@@ -19,23 +27,6 @@ namespace monogame.Objects
                 || (regions[0].State == -1 && regions[1].State == -1 && regions[2].State == -1))
                 ? regions[0].State
                 : 0;
-        }
-
-        public static int DetermineWinner(int row1, int row2, int row3, int col1)
-        {
-            if (row1 != 0)
-            {
-                return row1;
-            }
-            else if (row2 != 0)
-            {
-                return row2;
-            }
-            else if (row3 != 0)
-            {
-                return row3;
-            }
-            return col1;
         }
     }
 }
