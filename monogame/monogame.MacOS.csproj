@@ -68,6 +68,7 @@
     <Compile Include="Objects\Region.cs" />
     <Compile Include="Objects\Board.cs" />
     <Compile Include="Objects\BoardStateManager.cs" />
+    <Compile Include="Objects\WinStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

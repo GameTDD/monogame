@@ -51,6 +51,7 @@
     <Compile Include="Objects\RegionTest.cs" />
     <Compile Include="Objects\BoardConfig.cs" />
     <Compile Include="Handlers\StateManagerTest.cs" />
+    <Compile Include="Handlers\WinStateManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
