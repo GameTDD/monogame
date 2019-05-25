@@ -23,6 +23,8 @@ namespace monogame.Testes.Handlers
                 new Region(206, 306, 88, 94, null),
                 new Region(306, 306, 94, 94, null)
             };
+            WinStateManager.CanKeepPlaying = true;
+            WinStateManager.PlayerWhoWon = "";
         }
 
         [Test]
@@ -88,6 +90,55 @@ namespace monogame.Testes.Handlers
             regions[4].State = -1;
             regions[6].State = -1;
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(-1));
+        }
+
+        [Test]
+        public void NoPlayerHasWon()
+        {
+            TestSetup();
+            Assert.That(WinStateManager.PlayerWhoWon, Is.EqualTo(""));
+        }
+
+        [Test]
+        public void Player1HasWonMessage()
+        {
+            TestSetup();
+            regions[0].State = 1;
+            regions[4].State = 1;
+            regions[8].State = 1;
+            WinStateManager.Update(regions);
+            Assert.That(WinStateManager.PlayerWhoWon, Is.EqualTo("P1 Wins"));
+        }
+
+        [Test]
+        public void Player2HasWonMessage()
+        {
+            TestSetup();
+            regions[0].State = -1;
+            regions[4].State = -1;
+            regions[8].State = -1;
+            WinStateManager.Update(regions);
+            Assert.That(WinStateManager.PlayerWhoWon, Is.EqualTo("P2 Wins"));
+        }
+
+        [Test]
+        public void KeepPlayingWhenNoPlayerWon()
+        {
+            TestSetup();
+            WinStateManager.Update(regions);
+            Assert.That(WinStateManager.CanKeepPlaying, Is.EqualTo(true));
+        }
+
+        [TestCase(1)]
+        [TestCase(-1)]
+        public void CantKeepPlayingWhenNoPlayerWon(int x)
+        {
+            TestSetup();
+            regions[0].State = x;
+            regions[4].State = x;
+            regions[8].State = x;
+            WinStateManager.Update(regions);
+            Assert.That(WinStateManager.CanKeepPlaying, Is.EqualTo(false));
         }
     }
 }

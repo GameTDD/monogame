@@ -5,6 +5,9 @@ namespace monogame.Objects
 {
     public static class WinStateManager
     {
+        public static string PlayerWhoWon = "";
+        public static bool CanKeepPlaying = true;
+
         public static int WhichPlayerWon(Region[] regions)
         {
             int[] axis = {
@@ -28,6 +31,13 @@ namespace monogame.Objects
                 || (regions[0].State == -1 && regions[1].State == -1 && regions[2].State == -1))
                 ? regions[0].State
                 : 0;
+        }
+
+        public static void Update(Region[] regions) 
+        {
+            var whoWon = WhichPlayerWon(regions);
+            if (whoWon == 1) { PlayerWhoWon = "P1 Wins"; CanKeepPlaying = false; }
+            if (whoWon == -1) { PlayerWhoWon = "P2 Wins"; CanKeepPlaying = false; }
         }
     }
 }

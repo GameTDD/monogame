@@ -6,11 +6,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace monogame.Testes.GameScene
 {
-    [TestFixture()]
+    [TestFixture]
     public class GameConfig
     {
 
-        [Test()]
+        [Test]
         public void IsBackgroundWhite()
         {
             Assert.That(Color.White, Is.EqualTo(GeneralAttributes.BackgroundColor()));

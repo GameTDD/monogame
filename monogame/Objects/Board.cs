@@ -16,6 +16,7 @@ namespace monogame.Objects
         public MouseState Previous { get; set; }
         public int Thickness { get; set; }
         public int Length { get; set; }
+        public SpriteFont font { get; set; }
 
         public Board(SpriteFont font)
         {
@@ -38,12 +39,17 @@ namespace monogame.Objects
                 new Region(206, 306, 88, 94, font),
                 new Region(306, 306, 94, 94, font)
             };
+            this.font = font;
         }
 
         public void Update()
         {
-            UpdateMouse(Mouse.GetState());
-            UpdateCLicks(BoardStateManager.ClickedRegion(regions, Current, Previous));
+            if (WinStateManager.CanKeepPlaying)
+            {
+                UpdateMouse(Mouse.GetState());
+                UpdateCLicks(BoardStateManager.ClickedRegion(regions, Current, Previous));
+                WinStateManager.Update(regions);
+            }
         }
 
         public void Draw(SpriteBatch sb)
@@ -53,6 +59,7 @@ namespace monogame.Objects
                 sb.Draw(GeneralAttributes.LineTexture, line, Color.White);
             }
             DrawRegions(sb);
+            DrawWinner(sb);
         }
 
         public void UpdateMouse(MouseState newState) 
@@ -72,6 +79,12 @@ namespace monogame.Objects
             {
                 region.Draw(sb);
             }
+        }
+
+        public void DrawWinner(SpriteBatch sb)
+        {
+            sb.DrawString(font, WinStateManager.PlayerWhoWon,
+                          new Vector2(410, 100), Color.DarkBlue);
         }
     }
 }

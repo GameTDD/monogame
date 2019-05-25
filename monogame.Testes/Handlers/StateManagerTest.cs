@@ -10,7 +10,7 @@ namespace monogame.Testes.Handlers
     public class StateManagerTest
     {
         Board gameBoard;
-        BoardStateManager stateManager;
+        private BoardStateManager stateManager;
         MouseState currentState, previousState;
 
         [TestFixtureSetUp]
