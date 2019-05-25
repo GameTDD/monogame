@@ -21,13 +21,13 @@ namespace monogame.Objects
         {
             Thickness = 10;
             Length = 300;
-            lines = new Rectangle[4] {
+            lines = new Rectangle[] {
                 new Rectangle(FIRST_POSITION, BASE_INVERT_AXIS, Thickness, Length),
                 new Rectangle(SECOND_POSITION, BASE_INVERT_AXIS, Thickness, Length),
                 new Rectangle(BASE_INVERT_AXIS, FIRST_POSITION, Length, Thickness),
-                new Rectangle(BASE_INVERT_AXIS, SECOND_POSITION, Length, Thickness),
+                new Rectangle(BASE_INVERT_AXIS, SECOND_POSITION, Length, Thickness)
             };
-            regions = new Region[9] {
+            regions = new Region[] {
                 new Region(100, 100, 94, 94, font),
                 new Region(206, 100, 88, 94, font),
                 new Region(306, 100, 94, 94, font),
@@ -40,7 +40,7 @@ namespace monogame.Objects
             };
         }
 
-        public void Update(GameTime gameTime)
+        public void Update()
         {
             UpdateMouse(Mouse.GetState());
             UpdateCLicks(BoardStateManager.ClickedRegion(regions, Current, Previous));

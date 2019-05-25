@@ -47,7 +47,7 @@ namespace monogame.Objects
         {
             if (State == 1)
             { return "X"; }
-            else if (State == -1) 
+            if (State == -1) 
             { return "O"; }
             return "";
         }

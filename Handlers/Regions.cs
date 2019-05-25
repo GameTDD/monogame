@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Handlers
 {
-    public class Regions
+    public static class Regions
     {
         public static bool IsInReagion(MouseState mouse, Rectangle rect)
         {

@@ -5,7 +5,7 @@ using Handlers;
 
 namespace monogame.Testes
 {
-    [TestFixture()]
+    [TestFixture]
     public class GeometryTest
     {
         protected MouseState correctMouseState;
@@ -14,7 +14,7 @@ namespace monogame.Testes
         protected MouseState greaterThanRegionState;
         protected Rectangle rect;
 
-        [TestFixtureSetUp()]
+        [TestFixtureSetUp]
         public void GeometryTestSetUp()
         {
             correctMouseState = new MouseState(50, 80, 0, ButtonState.Pressed, ButtonState.Released,
@@ -29,38 +29,38 @@ namespace monogame.Testes
         }
 
     
-        [Test()]
+        [Test]
         public void MouseStatePositionIsInRegion()
         {
             Assert.That(Regions.IsInReagion(correctMouseState, rect), Is.True);
         }
 
-        [Test()]
+        [Test]
         public void MouseStatePositionSmallerThanRegion()
         {
             Assert.That(Regions.IsInReagion(smallerThanRegionState, rect), Is.False);
         }
 
-        [Test()]
+        [Test]
         public void MouseStatePositionGreaterThanRegion()
         {
             Assert.That(Regions.IsInReagion(greaterThanRegionState, rect), Is.False);
         }
     
 
-        [Test()]
+        [Test]
         public void MouseHasClickedRegion()
         {
             Assert.That(Regions.HasMouseClickedRegion(correctMouseState, smallerThanRegionState, rect), Is.True);
         }
 
-        [Test()]
+        [Test]
         public void MouseInRegionNotClicked()
         {
             Assert.That(Regions.HasMouseClickedRegion(unclickedMouseState, smallerThanRegionState, rect), Is.False);
         }
 
-        [Test()]
+        [Test]
         public void MouseClickedNotInRegion()
         {
             Assert.That(Regions.HasMouseClickedRegion(greaterThanRegionState, unclickedMouseState, rect), Is.False);

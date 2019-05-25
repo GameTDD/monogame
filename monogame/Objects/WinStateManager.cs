@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System;
-using System.Linq;
 
 namespace monogame.Objects
 {
-    public class WinStateManager
+    public static class WinStateManager
     {
         public static int WhichPlayerWon(Region[] regions)
         {
-            int[] axis = new int[] {
-                HasWon( new Region[] { regions[0], regions[1], regions[2] }),
+            int[] axis = {
+                HasWon(new Region[] { regions[0], regions[1], regions[2] }),
                 HasWon(new Region[] { regions[3], regions[4], regions[5] }),
                 HasWon(new Region[] { regions[6], regions[7], regions[8] }),
                 HasWon(new Region[] { regions[0], regions[3], regions[6] }),
@@ -19,9 +18,8 @@ namespace monogame.Objects
                 HasWon(new Region[] { regions[2], regions[4], regions[6] })
             };
 
-            foreach(int value in axis) { 
-                if (value == 1 || value == -1) { return value;  }
-            }
+            foreach(int value in axis) if (value == 1 || value == -1) { return value;  }
+            
             return 0;
         }
 

@@ -63,8 +63,7 @@ namespace monogame.MacOS
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
-            board.Update(gameTime);
+            board.Update();
             base.Update(gameTime);
         }
 

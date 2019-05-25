@@ -2,7 +2,7 @@
 
 namespace Handlers
 {
-    public class Input
+    public static class Input
     {
         public static bool IsMouseClicked(MouseState mouseState, MouseState prevMouseState)
         {

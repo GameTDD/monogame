@@ -6,14 +6,14 @@ using monogame.Objects;
 
 namespace monogame.Testes.Handlers
 {
-    [TestFixture()]
+    [TestFixture]
     public class StateManagerTest
     {
         Board gameBoard;
         BoardStateManager stateManager;
         MouseState currentState, previousState;
 
-        [TestFixtureSetUp()]
+        [TestFixtureSetUp]
         public void StateManagerSetUp()
         {
             SpriteFont font = null;
@@ -23,7 +23,7 @@ namespace monogame.Testes.Handlers
                       ButtonState.Released, ButtonState.Released, ButtonState.Released);
         }
 
-        [Test()]
+        [Test]
         public void MouseClickedRegion4()
         {
             currentState = new MouseState(250, 250, 0, ButtonState.Pressed, ButtonState.Released,
@@ -32,7 +32,7 @@ namespace monogame.Testes.Handlers
                                                         previousState), Is.EqualTo(4));
         }
 
-        [Test()]
+        [Test]
         public void MouseClickedRegion0()
         {
             currentState = new MouseState(105, 105, 0, ButtonState.Pressed, ButtonState.Released, 
@@ -41,7 +41,7 @@ namespace monogame.Testes.Handlers
             Assert.That(BoardStateManager.ClickedRegion(gameBoard.regions, currentState, previousState), Is.EqualTo(0));
         }
 
-        [Test()]
+        [Test]
         public void ClickIsOutsideRegions()
         {
             currentState = new MouseState(50, 50, 0, ButtonState.Pressed, ButtonState.Released, 
@@ -51,7 +51,7 @@ namespace monogame.Testes.Handlers
                         Is.EqualTo(-1));
         }
 
-        [Test()]
+        [Test]
         public void ClickInSeparatorLinesRetunsNegative()
         {
             currentState = new MouseState(196, 101, 0, ButtonState.Pressed, ButtonState.Released,
@@ -60,7 +60,7 @@ namespace monogame.Testes.Handlers
                                         previousState), Is.EqualTo(-1));
         }
 
-        [Test()]
+        [Test]
         public void ClickedRegionHasChangedState()
         {
             currentState = new MouseState(250, 250, 0, ButtonState.Pressed, ButtonState.Released,
@@ -70,7 +70,7 @@ namespace monogame.Testes.Handlers
             Assert.That(gameBoard.regions[4].State, Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void PlayerStateHasUpdated()
         {
             BoardStateManager.currentPlayer = 1;
@@ -80,7 +80,7 @@ namespace monogame.Testes.Handlers
             Assert.That(BoardStateManager.currentPlayer, Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void DifferentClickedRegionsHaveDiffStates()
         {
             gameBoard.regions[3].InteractWithRegionState();
@@ -89,7 +89,7 @@ namespace monogame.Testes.Handlers
             Assert.That(gameBoard.regions[4].State, Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void UpdateBoardMouseStates()
         {
             currentState = new MouseState(250, 250, 0, ButtonState.Pressed, ButtonState.Released,
@@ -103,7 +103,7 @@ namespace monogame.Testes.Handlers
             Assert.That(gameBoard.Previous, Is.EqualTo(currentState));
         }
 
-        [Test()]
+        [Test]
         public void RegionHasBeenClickedWithCorrectPlayers()
         {
             Assert.That(gameBoard.regions[0].State, Is.EqualTo(0));

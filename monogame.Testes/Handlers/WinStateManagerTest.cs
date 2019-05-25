@@ -4,15 +4,15 @@ using monogame.Objects;
 
 namespace monogame.Testes.Handlers
 {
-    [TestFixture()]
+    [TestFixture]
     public class WinStateManagerTest
     {
         Region[] regions;
 
-        [TestFixtureSetUp()]
+        [TestFixtureSetUp]
         public void TestSetup()
         { 
-            regions = new Region[9] {
+            regions = new Region[] {
                 new Region(100, 100, 94, 94, null),
                 new Region(206, 100, 88, 94, null),
                 new Region(306, 100, 94, 94, null),
@@ -25,13 +25,13 @@ namespace monogame.Testes.Handlers
             };
         }
 
-        [Test()]
+        [Test]
         public void AllRegionsWith0NoVictoryPlayer()
         {
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(0));
         }
 
-        [Test()]
+        [Test]
         public void Row1HasWonP1()
         {
             regions[0].State = 1;
@@ -40,7 +40,7 @@ namespace monogame.Testes.Handlers
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void Row2HasWonP2()
         {
             TestSetup();
@@ -50,7 +50,7 @@ namespace monogame.Testes.Handlers
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(-1));
         }
 
-        [Test()]
+        [Test]
         public void Col1HasWonP1()
         {
             TestSetup();
@@ -60,7 +60,7 @@ namespace monogame.Testes.Handlers
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void Col2HasWonP2()
         {
             TestSetup();
@@ -70,7 +70,7 @@ namespace monogame.Testes.Handlers
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(-1));
         }
 
-        [Test()]
+        [Test]
         public void Diag1HasWonP1()
         {
             TestSetup();
@@ -80,7 +80,7 @@ namespace monogame.Testes.Handlers
             Assert.That(WinStateManager.WhichPlayerWon(regions), Is.EqualTo(1));
         }
 
-        [Test()]
+        [Test]
         public void Diag2HasWonP2()
         {
             TestSetup();

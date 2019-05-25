@@ -7,31 +7,31 @@ using monogame.Objects;
 
 namespace monogame.Testes.Objects
 {
-    [TestFixture()]
+    [TestFixture]
     public class BoardConfig
     {
         Board gameBoard;
 
-        [TestFixtureSetUp()]
+        [TestFixtureSetUp]
         public void BoardTestSetUp()
         {
             SpriteFont font = null;
             gameBoard = new Board(font);
         }
 
-        [Test()]
+        [Test]
         public void LinesAreReactangles()
         {
             Assert.That(gameBoard.lines[0], Is.InstanceOf<Rectangle>());
         }
 
-        [Test()]
+        [Test]
         public void BoardHasOnly4Lines()
         {
             Assert.That(gameBoard.lines.Length, Is.EqualTo(4));
         }
 
-        [Test()]
+        [Test]
         public void ThicknessAndLenghtAreCommonProps()
         {
             Assert.That(gameBoard.Thickness, Is.EqualTo(10));
@@ -47,7 +47,7 @@ namespace monogame.Testes.Objects
             Assert.That(gameBoard.lines[i], Is.EqualTo(new Rectangle(x, y, w, h)));
         }
 
-        [Test()]
+        [Test]
         public void BoardHas9Regions()
         {
             Assert.That(gameBoard.regions.Length, Is.EqualTo(9));
@@ -78,7 +78,7 @@ namespace monogame.Testes.Objects
         [TestCase(8)]
         public void RegionsDoNotOverlap(int x)
         {
-            Rectangle[] rectangles = new Rectangle[9] {
+            Rectangle[] rectangles = {
                 gameBoard.regions[0].Area,
                 gameBoard.regions[1].Area,
                 gameBoard.regions[2].Area,
@@ -87,7 +87,7 @@ namespace monogame.Testes.Objects
                 gameBoard.regions[5].Area,
                 gameBoard.regions[6].Area,
                 gameBoard.regions[7].Area,
-                gameBoard.regions[8].Area, 
+                gameBoard.regions[8].Area
             };
             Assert.That(HasOverlap(gameBoard.regions[x].Area, rectangles, x), Is.False);
         }

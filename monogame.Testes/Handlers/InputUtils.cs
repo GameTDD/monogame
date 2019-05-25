@@ -4,38 +4,38 @@ using Handlers;
 
 namespace monogame.Testes
 {
-    [TestFixture()]
+    [TestFixture]
     public class InputUtils
     {
         MouseState buttonPressedState;
         MouseState buttonReleasedState;
 
-        [TestFixtureSetUp()]
+        [TestFixtureSetUp]
         public void TestSetup()
         {
             buttonPressedState = new MouseState(0, 0, 0, ButtonState.Pressed, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released);
             buttonReleasedState = new MouseState(0, 0, 0, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released);
         }
 
-        [Test()]
+        [Test]
         public void IsClickedShouldReturnTrueForClickedState()
         {
             Assert.That(Input.IsMouseClicked(buttonPressedState, buttonReleasedState), Is.True);
         }
 
-        [Test()]
+        [Test]
         public void IsClickedShouldReturnFalseForPressedState()
         {
             Assert.That(Input.IsMouseClicked(buttonPressedState, buttonPressedState), Is.False);
         }  
 
-        [Test()]
+        [Test]
         public void IsClickedShouldReturnFalseForReleasedState()
         {
             Assert.That(Input.IsMouseClicked(buttonReleasedState, buttonReleasedState), Is.False);
         }  
 
-        [Test()]
+        [Test]
         public void IsClickedShouldReturnFalseForUnclickedState()
         {
             Assert.That(Input.IsMouseClicked(buttonReleasedState, buttonPressedState), Is.False);
